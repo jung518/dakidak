@@ -29,9 +29,10 @@ const sampleMenu: ChickenMenu = {
   name: '닭갈비',
   description: '매콤달콤한 양념에 철판으로 볶아낸 춘천의 맛',
   cuisine: 'korean',
+  mealType: ['dish'],
   cooking: ['stirfry'],
   taste: ['spicy', 'sweet'],
-  portion: 'hearty',
+  servings: ['group'],
   searchKeyword: '닭갈비',
 };
 
