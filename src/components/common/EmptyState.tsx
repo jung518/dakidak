@@ -8,6 +8,8 @@ export type EmptyStateTone = 'default' | 'error';
 export interface EmptyStateProps {
   /** 원 안에 표시할 짧은 글자나 아이콘 요소 (예: "404") */
   icon?: ReactNode;
+  /** 상황 그림 (예: 요리사 닭 그림). 있으면 icon 대신 표시 */
+  image?: string;
   title: string;
   description?: ReactNode;
   /** 버튼 등 행동 유도 영역 */
@@ -18,7 +20,7 @@ export interface EmptyStateProps {
 }
 
 /** 결과 없음, 에러, 안내 메시지 */
-export function EmptyState({ icon, title, description, action, tone = 'default', className }: EmptyStateProps) {
+export function EmptyState({ icon, image, title, description, action, tone = 'default', className }: EmptyStateProps) {
   return (
     <ClayCard
       color="white"
@@ -26,10 +28,14 @@ export function EmptyState({ icon, title, description, action, tone = 'default',
       className={cx(styles.card, className)}
       role={tone === 'error' ? 'alert' : 'status'}
     >
-      {icon && (
-        <span className={styles.icon} aria-hidden="true">
-          {icon}
-        </span>
+      {image ? (
+        <img src={image} alt="" className={styles.image} decoding="async" />
+      ) : (
+        icon && (
+          <span className={styles.icon} aria-hidden="true">
+            {icon}
+          </span>
+        )
       )}
       <h2 className={styles.title}>{title}</h2>
       {description && <p className={styles.description}>{description}</p>}

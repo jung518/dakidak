@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getChefImage } from '../../assets/brand';
 import type { ChickenMenu } from '../../types';
 import { cx } from '../../utils/cx';
 import { pickRandom } from '../../utils/recommend';
@@ -39,6 +40,7 @@ export function MenuShuffle({
   }, [animated, candidates, interval]);
 
   const name = animated ? current?.name : undefined;
+  const thinkingImage = getChefImage('thinking');
 
   return (
     <ClayCard color="yellow" padding="lg" className={cx(styles.card, className)} aria-busy="true">
@@ -46,9 +48,19 @@ export function MenuShuffle({
         {label}
       </p>
       <div className={styles.body} aria-hidden="true">
-        <div className={cx(styles.visual, animated && styles.spinning)}>
-          <span className={styles.initial}>{name ? Array.from(name)[0] : '?'}</span>
-        </div>
+        {thinkingImage ? (
+          // 고민하는 요리사 닭 그림
+          <img
+            src={thinkingImage}
+            alt=""
+            className={cx(styles.illustration, animated && styles.spinning)}
+            decoding="async"
+          />
+        ) : (
+          <div className={cx(styles.visual, animated && styles.spinning)}>
+            <span className={styles.initial}>{name ? Array.from(name)[0] : '?'}</span>
+          </div>
+        )}
         <p className={styles.name}>{name ?? '두구두구...'}</p>
         <p className={styles.label}>{label}</p>
       </div>

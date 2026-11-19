@@ -58,6 +58,8 @@
     inset 4px 4px 8px rgba(0, 0, 0, 0.08),
     inset -4px -4px 8px rgba(255, 255, 255, 0.7);
   --focus-ring: 0 0 0 3px var(--yellow-100), 0 0 0 6px var(--color-focus);
+  /* 투명 배경 일러스트(요리사 닭 그림)용 그림자 */
+  --illustration-shadow: drop-shadow(6px 8px 10px rgba(255, 122, 26, 0.18));
 
   /* ---------- 모서리 ---------- */
   --radius-sm: 12px;

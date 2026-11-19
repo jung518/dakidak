@@ -9,17 +9,22 @@ export interface LogoProps {
   className?: string;
 }
 
+/** 로고 이미지(가로형 워드마크)가 있는지. 있으면 헤더에서 글자를 따로 쓰지 않음 */
+export const hasLogoImage = Boolean(logoSrc);
+
 /**
- * 임시 로고: 클레이 원 + 글자 ("닭" / "닭이닭")
- * src/assets/brand/logo.svg 가 있으면 이미지로 대체
+ * 로고
+ * - src/assets/brand/logo.* 가 있으면 워드마크 이미지 (높이 기준으로 크기 결정)
+ * - 없으면 임시 로고: 클레이 원 + 볏 + 글자 ("닭" / "닭이닭")
  */
 export function Logo({ size = 'md', className }: LogoProps) {
   if (logoSrc) {
     return (
       <img
         src={logoSrc}
-        alt="오늘도 닭이닭 로고"
-        className={cx(styles.logo, styles.image, styles[size], className)}
+        alt="오늘도 닭이닭"
+        className={cx(styles.wordmark, styles[`wordmark-${size}`], className)}
+        decoding="async"
       />
     );
   }

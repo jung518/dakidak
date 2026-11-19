@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { getChefImage } from '../../assets/brand';
 import { ClayButton } from './ClayButton';
 import { EmptyState } from './EmptyState';
 import styles from './ErrorBoundary.module.css';
@@ -38,6 +39,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       <main className={styles.wrapper}>
         <EmptyState
           tone="error"
+          image={getChefImage('oops')}
           title="앗, 잠시 문제가 생겼어요"
           description="화면을 불러오는 중에 오류가 났어요. 다시 시도하거나 처음으로 돌아가 주세요."
           action={

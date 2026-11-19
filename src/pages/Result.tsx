@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ApiError, geocode } from '../api/client';
+import { getChefImage } from '../assets/brand';
 import {
   ClayButton,
   EmptyState,
@@ -84,6 +85,7 @@ export default function Result() {
       <PageLayout narrow>
         <div className={styles.notFound}>
           <EmptyState
+            image={getChefImage('lost')}
             title="메뉴를 찾을 수 없어요"
             description="주소가 잘못되었거나 없어진 메뉴예요. 오늘의 닭요리를 다시 골라 볼까요?"
             action={<ClayButton onClick={() => navigate('/')}>메뉴 다시 고르기</ClayButton>}
@@ -155,6 +157,7 @@ export default function Result() {
     content = (
       <EmptyState
         tone="error"
+        image={getChefImage('oops')}
         title={copy.title}
         description={copy.description}
         action={<ClayButton onClick={search.retry}>다시 시도</ClayButton>}
@@ -163,6 +166,7 @@ export default function Result() {
   } else if (search.status === 'empty') {
     content = (
       <EmptyState
+        image={getChefImage('empty')}
         title={`근처에 ${menu.name} 파는 곳이 없어요`}
         description={`반경 ${formatDistance(search.radius)} 안에서는 찾지 못했어요.`}
         action={

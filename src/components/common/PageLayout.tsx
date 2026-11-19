@@ -18,6 +18,8 @@ export interface PageLayoutProps {
    * (추천 메뉴 카드처럼 큰 카드를 버튼이 가리지 않아야 하는 화면용)
    */
   stickyBottomBar?: boolean;
+  /** false 면 상단 헤더(로고)를 숨김 (홈처럼 본문에 큰 로고가 있는 화면용) */
+  showHeader?: boolean;
   /** 본문 최대 너비를 좁게 (단계별 선택 등 1열 화면용) */
   narrow?: boolean;
   className?: string;
@@ -29,6 +31,7 @@ export function PageLayout({
   onBack,
   bottomBar,
   stickyBottomBar = true,
+  showHeader = true,
   narrow = false,
   className,
 }: PageLayoutProps) {
@@ -44,8 +47,8 @@ export function PageLayout({
 
   return (
     <div className={styles.layout}>
-      <Header />
-      <main className={cx(styles.main, narrow && styles.narrow, className)}>
+      {showHeader && <Header />}
+      <main className={cx(styles.main, narrow && styles.narrow, !showHeader && styles.noHeader, className)}>
         {showBack && (
           <div className={styles.backRow}>
             <ClayButton variant="ghost" size="sm" onClick={handleBack}>

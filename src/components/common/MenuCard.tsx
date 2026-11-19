@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { getChefImage } from '../../assets/brand';
 import type { ChickenMenu } from '../../types';
 import { cx } from '../../utils/cx';
 import { getMenuTags } from '../../utils/format';
@@ -13,10 +14,15 @@ export interface MenuCardProps {
   className?: string;
 }
 
-/** 추천된 닭요리 카드: 이미지(없으면 이름 첫 글자), 이름, 한 줄 설명, 태그 */
+/**
+ * 추천된 닭요리 카드: 그림, 이름, 한 줄 설명, 태그
+ * - 그림 우선순위: 메뉴 사진(menu.image) → 조리법별 요리사 닭 그림 → 이름 첫 글자
+ */
 export function MenuCard({ menu, message, className }: MenuCardProps) {
   const reduceMotion = useReducedMotion();
   const tags = getMenuTags(menu);
+  const firstCooking = menu.cooking[0];
+  const chefImage = firstCooking ? getChefImage(firstCooking) : undefined;
 
   return (
     <ClayCard as="article" color="yellow" padding="lg" className={cx(styles.card, className)}>
@@ -34,15 +40,20 @@ export function MenuCard({ menu, message, className }: MenuCardProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 320, damping: 22 }}
       >
-        <div className={styles.visual}>
-          {menu.image ? (
+        {menu.image ? (
+          <div className={styles.visual}>
             <img src={menu.image} alt="" className={styles.image} />
-          ) : (
+          </div>
+        ) : chefImage ? (
+          // 메뉴 사진이 없으면 조리법에 맞는 요리사 닭 그림
+          <img src={chefImage} alt="" className={styles.illustration} decoding="async" />
+        ) : (
+          <div className={styles.visual}>
             <span className={styles.initial} aria-hidden="true">
               {Array.from(menu.name)[0]}
             </span>
-          )}
-        </div>
+          </div>
+        )}
 
         <h2 className={styles.name}>{menu.name}</h2>
         <p className={styles.description}>{menu.description}</p>

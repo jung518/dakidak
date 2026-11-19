@@ -29,6 +29,21 @@
   }
 }
 
+/* 고민하는 요리사 닭 그림 (MenuCard 의 그림과 같은 크기) */
+.illustration {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: var(--illustration-shadow);
+}
+
+@media (min-width: 768px) {
+  .illustration {
+    width: 220px;
+    height: 220px;
+  }
+}
+
 .spinning {
   animation: wobble 0.32s ease-in-out infinite alternate;
 }

@@ -1,6 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mascot, OptionCard, PageLayout } from '../components/common';
+import { hasLogoImage, Logo, Mascot, OptionCard, PageLayout } from '../components/common';
 import styles from './Home.module.css';
 
 const MODES = [
@@ -32,14 +32,16 @@ export default function Home() {
   };
 
   return (
-    <PageLayout>
+    // 홈은 본문에 큰 로고가 있으므로 헤더 로고를 숨겨 중복을 피함
+    <PageLayout showHeader={false}>
       <motion.div className={styles.page} variants={container} initial="hidden" animate="show">
         <section className={styles.hero} aria-labelledby="home-title">
           <motion.div variants={item}>
             <Mascot size="lg" animated />
           </motion.div>
           <motion.h1 id="home-title" className={styles.title} variants={item}>
-            오늘도 닭이닭
+            {/* 로고 이미지가 있으면 이미지(alt: 오늘도 닭이닭), 없으면 글자 */}
+            {hasLogoImage ? <Logo size="lg" /> : '오늘도 닭이닭'}
           </motion.h1>
           <motion.p className={styles.subtitle} variants={item}>
             오늘 뭐 먹지? 오늘도 닭이지!

@@ -13,10 +13,31 @@
   line-height: 1;
 }
 
-.image {
+/* ---------- 로고 이미지 (가로형 워드마크): 높이 기준 ---------- */
+.wordmark {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  background-color: transparent;
-  box-shadow: none;
+}
+
+.wordmark-sm {
+  height: 44px;
+}
+
+.wordmark-md {
+  height: 80px;
+}
+
+.wordmark-lg {
+  height: 132px;
+}
+
+@media (min-width: 768px) {
+  .wordmark-lg {
+    height: 168px;
+  }
 }
 
 .sm {

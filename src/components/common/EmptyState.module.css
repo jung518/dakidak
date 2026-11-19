@@ -21,6 +21,20 @@
   line-height: 1;
 }
 
+.image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: var(--illustration-shadow);
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 .title {
   font-size: var(--text-2xl);
 }

@@ -59,6 +59,21 @@
   object-fit: cover;
 }
 
+/* 요리사 닭 그림: 동그란 틀 없이 크게 */
+.illustration {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: var(--illustration-shadow);
+}
+
+@media (min-width: 768px) {
+  .illustration {
+    width: 220px;
+    height: 220px;
+  }
+}
+
 .name {
   font-size: var(--text-3xl);
 }

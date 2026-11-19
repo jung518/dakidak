@@ -45,7 +45,7 @@ export type { PageLayoutProps } from './PageLayout';
 
 export { Header } from './Header';
 
-export { Logo } from './Logo';
+export { hasLogoImage, Logo } from './Logo';
 export type { LogoProps, LogoSize } from './Logo';
 
 export { Mascot } from './Mascot';
