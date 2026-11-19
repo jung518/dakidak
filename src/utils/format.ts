@@ -27,8 +27,3 @@ export function getMenuTags(menu: ChickenMenu): string[] {
 export function formatTags(tags: string[]): string {
   return tags.map((t) => `#${t}`).join(' ');
 }
-
-/** 카카오맵 길찾기 링크 생성 */
-export function buildDirectionsUrl(name: string, y: number, x: number): string {
-  return `https://map.kakao.com/link/to/${encodeURIComponent(name)},${y},${x}`;
-}

@@ -21,7 +21,6 @@ export function SkeletonCard({ lines = 3, showActions = true, className }: Skele
       {showActions && (
         <div className={styles.actions}>
           <div className={cx(styles.bar, styles.button)} />
-          <div className={cx(styles.bar, styles.button)} />
         </div>
       )}
     </ClayCard>

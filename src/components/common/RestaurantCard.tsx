@@ -1,9 +1,8 @@
 import type { Restaurant } from '../../types';
 import { cx } from '../../utils/cx';
-import { buildDirectionsUrl, formatDistance } from '../../utils/format';
+import { formatDistance } from '../../utils/format';
 import { ClayButton } from './ClayButton';
 import { ClayCard } from './ClayCard';
-import { ClayChip } from './ClayChip';
 import styles from './RestaurantCard.module.css';
 
 export interface RestaurantCardProps {
@@ -19,14 +18,14 @@ function shortenCategory(category: string): string {
 }
 
 export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
-  const { name, category, address, distance, phone, placeUrl, x, y } = restaurant;
+  const { name, category, address, distance, phone, placeUrl } = restaurant;
   const distanceText = formatDistance(distance);
 
   return (
     <ClayCard as="article" color="white" padding="md" className={cx(styles.card, className)}>
       <div className={styles.head}>
         <h3 className={styles.name}>{name}</h3>
-        {distanceText && <ClayChip label={distanceText} className={styles.distance} />}
+        {distanceText && <span className={styles.distance}>{distanceText}</span>}
       </div>
 
       {category && <p className={styles.category}>{shortenCategory(category)}</p>}
@@ -51,9 +50,6 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
       <div className={styles.actions}>
         <ClayButton href={placeUrl} variant="secondary" size="sm" fullWidth>
           카카오맵에서 보기
-        </ClayButton>
-        <ClayButton href={buildDirectionsUrl(name, y, x)} variant="primary" size="sm" fullWidth>
-          길찾기
         </ClayButton>
       </div>
     </ClayCard>
