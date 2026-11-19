@@ -11,29 +11,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-6);
   text-align: center;
 }
 
-.hero > :first-child {
-  margin-bottom: var(--space-4);
-}
-
 .title {
+  display: flex;
+  justify-content: center;
   font-size: clamp(2.5rem, 11vw, 4rem);
   color: var(--color-text);
 }
 
-.subtitle {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  color: var(--color-accent);
+/* 말풍선 + 캐릭터: 말풍선 꼬리가 캐릭터를 가리키도록 붙여서 배치 */
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
 }
 
-@media (min-width: 768px) {
-  .subtitle {
-    font-size: var(--text-2xl);
-  }
+.sloganAccent {
+  color: var(--color-accent);
 }
 
 /* ---------- 추천 방식 카드 ---------- */

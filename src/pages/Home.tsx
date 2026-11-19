@@ -1,6 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { hasLogoImage, Logo, Mascot, OptionCard, PageLayout } from '../components/common';
+import { hasLogoImage, Logo, Mascot, OptionCard, PageLayout, SpeechBubble } from '../components/common';
 import styles from './Home.module.css';
 
 const MODES = [
@@ -36,16 +36,25 @@ export default function Home() {
     <PageLayout showHeader={false}>
       <motion.div className={styles.page} variants={container} initial="hidden" animate="show">
         <section className={styles.hero} aria-labelledby="home-title">
-          <motion.div variants={item}>
-            <Mascot size="lg" animated />
-          </motion.div>
+          {/* 1. 서비스 이름 */}
           <motion.h1 id="home-title" className={styles.title} variants={item}>
             {/* 로고 이미지가 있으면 이미지(alt: 오늘도 닭이닭), 없으면 글자 */}
             {hasLogoImage ? <Logo size="lg" /> : '오늘도 닭이닭'}
           </motion.h1>
-          <motion.p className={styles.subtitle} variants={item}>
-            오늘 뭐 먹지? 오늘도 닭이지!
-          </motion.p>
+
+          {/* 2. 캐릭터가 슬로건을 말하는 장면 */}
+          <div className={styles.greeting}>
+            <motion.div variants={item}>
+              <SpeechBubble tail="bottom">
+                오늘 뭐 먹지?
+                <br />
+                <span className={styles.sloganAccent}>오늘도 닭이지!</span>
+              </SpeechBubble>
+            </motion.div>
+            <motion.div variants={item}>
+              <Mascot size="md" animated />
+            </motion.div>
+          </div>
         </section>
 
         <section className={styles.modes} aria-label="추천 방식 선택">

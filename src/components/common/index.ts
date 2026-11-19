@@ -28,6 +28,9 @@ export type { MenuShuffleProps } from './MenuShuffle';
 export { RestaurantCard } from './RestaurantCard';
 export type { RestaurantCardProps } from './RestaurantCard';
 
+export { SpeechBubble } from './SpeechBubble';
+export type { SpeechBubbleProps, SpeechBubbleTail } from './SpeechBubble';
+
 export { SkeletonCard } from './SkeletonCard';
 export type { SkeletonCardProps } from './SkeletonCard';
 

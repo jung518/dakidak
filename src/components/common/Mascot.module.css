@@ -22,7 +22,13 @@
 }
 
 .md {
-  --mascot-size: 144px;
+  --mascot-size: 160px;
+}
+
+@media (min-width: 768px) {
+  .md {
+    --mascot-size: 200px;
+  }
 }
 
 .lg {
