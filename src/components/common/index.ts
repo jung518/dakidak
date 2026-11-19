@@ -4,6 +4,9 @@ export type { ClayButtonProps, ClayButtonVariant, ClayButtonSize } from './ClayB
 export { ClayCard } from './ClayCard';
 export type { ClayCardProps, ClayCardColor, ClayCardPadding } from './ClayCard';
 
+export { BubbleChoice } from './BubbleChoice';
+export type { BubbleChoiceProps, BubbleOption, BubbleSize } from './BubbleChoice';
+
 export { ClayChip } from './ClayChip';
 export type { ClayChipProps, ClayChipSize } from './ClayChip';
 
@@ -15,6 +18,9 @@ export type { ProgressBarProps } from './ProgressBar';
 
 export { MenuCard } from './MenuCard';
 export type { MenuCardProps } from './MenuCard';
+
+export { MenuChoiceCard } from './MenuChoiceCard';
+export type { MenuChoiceCardProps, MenuChoiceState } from './MenuChoiceCard';
 
 export { MenuShuffle } from './MenuShuffle';
 export type { MenuShuffleProps } from './MenuShuffle';

@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound';
 import Quiz from './pages/Quiz';
 import Random from './pages/Random';
 import Result from './pages/Result';
+import WorldCup from './pages/WorldCup';
 
 /** 라우트 구성 */
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/random" element={<Random />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/worldcup" element={<WorldCup />} />
         <Route path="/result/:menuId" element={<Result />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

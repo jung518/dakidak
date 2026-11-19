@@ -5,7 +5,7 @@ import {
   ClayButton,
   MenuCard,
   MenuShuffle,
-  OptionCard,
+  BubbleChoice,
   PageLayout,
   ProgressBar,
 } from '../components/common';
@@ -80,11 +80,12 @@ export default function Quiz() {
   const visibleOptions = useMemo(() => {
     if (!currentStep) return [];
     const available = getAvailableValues(MENUS, takeAnswers(state.answers, state.step), currentStep.key);
-    const options = (currentStep.options as Array<{ value: string; label: string; description?: string }>).filter(
-      (o) => available.has(o.value),
-    );
-    return [...options, ANY_OPTION];
+    const options = (currentStep.options as Array<{ value: string; label: string }>)
+      .filter((o) => available.has(o.value))
+      .map(({ value, label }) => ({ value, label }));
+    return [...options, { value: ANY_OPTION.value, label: ANY_OPTION.label }];
   }, [currentStep, state.answers, state.step]);
+  const stepIndex = state.step;
 
   const slide = reduceMotion
     ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } }
@@ -148,17 +149,14 @@ export default function Quiz() {
                 {currentStep.question}
               </h1>
 
-              <div className={styles.options} role="group" aria-labelledby="quiz-question">
-                {visibleOptions.map((option) => (
-                  <OptionCard
-                    key={option.value}
-                    title={option.label}
-                    description={option.description}
-                    selected={state.answers[currentStep.key] === option.value}
-                    onClick={() => dispatch({ type: 'select', step: state.step, value: option.value })}
-                  />
-                ))}
-              </div>
+              <BubbleChoice
+                className={styles.options}
+                labelledBy="quiz-question"
+                options={visibleOptions}
+                selectedValue={state.answers[currentStep.key]}
+                mutedValue={ANY_OPTION.value}
+                onSelect={(value) => dispatch({ type: 'select', step: stepIndex, value })}
+              />
             </motion.section>
           ) : (
             <motion.section

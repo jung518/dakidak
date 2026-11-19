@@ -41,18 +41,14 @@
   }
 }
 
-.options {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
+/* 버블이 가운데 모이므로 질문도 가운데 정렬 */
+.question {
+  align-items: center;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
-  .options {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
+.options {
+  margin-top: var(--space-4);
 }
 
 /* ---------- 결과 ---------- */

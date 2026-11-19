@@ -1,0 +1,105 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  text-align: center;
+  box-shadow: var(--clay-shadow);
+  transition:
+    transform var(--duration-normal) var(--ease-spring),
+    box-shadow var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    opacity var(--duration-normal) var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .card {
+    min-height: 240px;
+    padding: var(--space-10) var(--space-6);
+    gap: var(--space-3);
+  }
+}
+
+@media (hover: hover) {
+  .card:hover:not(:disabled) {
+    transform: var(--lift-hover);
+    box-shadow: var(--clay-shadow-hover);
+  }
+}
+
+.card:active:not(:disabled) {
+  transform: var(--scale-pressed);
+  box-shadow: var(--clay-shadow-pressed);
+}
+
+.card:disabled {
+  cursor: default;
+}
+
+/* ---------- 고른 직후 상태 ---------- */
+.picked {
+  background-color: var(--yellow-300);
+  transform: scale(1.03);
+}
+
+.dropped {
+  opacity: 0.4;
+  transform: scale(0.97);
+}
+
+/* ---------- 내용 ---------- */
+/* 실제 사진이 있을 때만 사용 */
+.visual {
+  display: flex;
+  width: 96px;
+  height: 96px;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-full);
+  box-shadow: var(--clay-shadow-sm);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .visual {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: var(--text-3xl);
+  }
+}
+
+.description {
+  max-width: 24em;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: var(--text-md);
+  }
+}

@@ -60,6 +60,58 @@
   height: 100%;
 }
 
+/* ---------- 부가 기능 (닭요리 월드컵) ---------- */
+.extra {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--space-6) * -1);
+}
+
+/* 카드나 버튼 없이 밑줄 텍스트 링크 + CSS 로 그린 꺾쇠 화살표 */
+.extraLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target);
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+.extraLink::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .extraLink:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
+  }
+
+  .extraLink:hover::after {
+    transform: translateX(2px) rotate(45deg);
+  }
+}
+
+.extraLink:active {
+  color: var(--color-accent);
+}
+
 /* ---------- 서비스 소개 ---------- */
 .intro {
   display: flex;

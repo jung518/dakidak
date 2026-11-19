@@ -1,5 +1,5 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mascot, OptionCard, PageLayout } from '../components/common';
 import styles from './Home.module.css';
 
@@ -60,6 +60,13 @@ export default function Home() {
             </motion.div>
           ))}
         </section>
+
+        {/* 부가 기능: 메인 카드보다 작게 */}
+        <motion.div className={styles.extra} variants={item}>
+          <Link to="/worldcup" className={styles.extraLink}>
+            닭요리 월드컵 하러 가기
+          </Link>
+        </motion.div>
 
         <motion.footer className={styles.intro} variants={item}>
           <p>

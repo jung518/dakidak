@@ -1,0 +1,150 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+@media (min-width: 768px) {
+  .group {
+    gap: var(--space-4) var(--space-6);
+  }
+}
+
+/* ---------- 버블 ---------- */
+.bubble {
+  --bubble-size: 104px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  padding: var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  box-shadow: var(--clay-shadow);
+  animation: float 3.2s ease-in-out infinite;
+  transition:
+    transform var(--duration-normal) var(--ease-spring),
+    box-shadow var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    color var(--duration-normal) var(--ease-out);
+}
+
+.sm {
+  --bubble-size: 88px;
+}
+
+.md {
+  --bubble-size: 104px;
+}
+
+.lg {
+  --bubble-size: 120px;
+}
+
+@media (min-width: 768px) {
+  .sm {
+    --bubble-size: 116px;
+  }
+
+  .md {
+    --bubble-size: 136px;
+  }
+
+  .lg {
+    --bubble-size: 156px;
+  }
+}
+
+/* 색을 번갈아 섞어서 단조롭지 않게 */
+.tone0 {
+  background-color: var(--yellow-300);
+}
+
+.tone1 {
+  background-color: var(--orange-200);
+}
+
+.tone2 {
+  background-color: var(--yellow-500);
+}
+
+/* 상관없음: 연한 크림색 + 점선 테두리로 "아무거나" 느낌 */
+.muted {
+  background-color: var(--yellow-200);
+  color: var(--color-text-muted);
+  outline: 2px dashed var(--color-accent-soft);
+  outline-offset: -8px;
+}
+
+/* 애니메이션은 transform 보다 우선하므로, 마우스를 올리거나 누를 때는 둥실 애니메이션을 끔 */
+@media (hover: hover) {
+  .bubble:hover {
+    animation: none;
+    transform: scale(1.06);
+    box-shadow: var(--clay-shadow-hover);
+  }
+}
+
+.bubble:active {
+  animation: none;
+  transform: var(--scale-pressed);
+  box-shadow: var(--clay-shadow-pressed);
+}
+
+.selected {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.popping {
+  animation: pop 0.22s var(--ease-spring) both;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  text-align: center;
+  word-break: keep-all;
+}
+
+.lg .label {
+  font-size: var(--text-xl);
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: var(--text-xl);
+  }
+
+  .lg .label {
+    font-size: var(--text-2xl);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18) translateY(-8px);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
