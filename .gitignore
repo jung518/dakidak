@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+*.tsbuildinfo
+
+# env (API 키는 절대 커밋하지 않음)
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel/
+
+# logs
+npm-debug.log*
+*.log
+
+# editor / os
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
