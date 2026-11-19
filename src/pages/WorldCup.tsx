@@ -43,6 +43,7 @@ export default function WorldCup() {
   return (
     <PageLayout
       narrow={!match}
+      stickyBottomBar={false}
       bottomBar={
         champion ? (
           <>

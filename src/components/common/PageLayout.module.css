@@ -35,6 +35,13 @@
   background: linear-gradient(to top, var(--color-bg) 70%, transparent);
 }
 
+/* 고정하지 않는 버전: 본문 아래에 여백을 두고 이어서 표시 */
+.inFlow {
+  position: static;
+  padding-top: var(--space-4);
+  background: none;
+}
+
 .bottomInner {
   display: flex;
   flex-direction: column;

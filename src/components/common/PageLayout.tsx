@@ -13,12 +13,25 @@ export interface PageLayoutProps {
   onBack?: () => void;
   /** 모바일에서 화면 하단에 고정되는 버튼 영역 (태블릿 이상에서는 본문 아래에 표시) */
   bottomBar?: ReactNode;
+  /**
+   * false 면 모바일에서도 하단 버튼을 고정하지 않고 본문 아래에 여백을 두고 표시
+   * (추천 메뉴 카드처럼 큰 카드를 버튼이 가리지 않아야 하는 화면용)
+   */
+  stickyBottomBar?: boolean;
   /** 본문 최대 너비를 좁게 (단계별 선택 등 1열 화면용) */
   narrow?: boolean;
   className?: string;
 }
 
-export function PageLayout({ children, showBack = false, onBack, bottomBar, narrow = false, className }: PageLayoutProps) {
+export function PageLayout({
+  children,
+  showBack = false,
+  onBack,
+  bottomBar,
+  stickyBottomBar = true,
+  narrow = false,
+  className,
+}: PageLayoutProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,7 +56,7 @@ export function PageLayout({ children, showBack = false, onBack, bottomBar, narr
         {children}
       </main>
       {bottomBar && (
-        <div className={styles.bottomBar}>
+        <div className={cx(styles.bottomBar, !stickyBottomBar && styles.inFlow)}>
           <div className={cx(styles.bottomInner, narrow && styles.narrow)}>{bottomBar}</div>
         </div>
       )}

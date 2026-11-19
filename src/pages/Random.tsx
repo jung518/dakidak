@@ -17,6 +17,7 @@ export default function Random() {
   return (
     <PageLayout
       narrow
+      stickyBottomBar={false}
       bottomBar={
         <>
           <ClayButton

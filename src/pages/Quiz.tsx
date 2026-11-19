@@ -97,6 +97,7 @@ export default function Quiz() {
   return (
     <PageLayout
       narrow
+      stickyBottomBar={false}
       bottomBar={
         isResult ? (
           <>
