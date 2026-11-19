@@ -35,7 +35,7 @@ export function PageLayout({ children, showBack = false, onBack, bottomBar, narr
       <main className={cx(styles.main, narrow && styles.narrow, className)}>
         {showBack && (
           <div className={styles.backRow}>
-            <ClayButton variant="ghost" size="sm" icon="←" onClick={handleBack}>
+            <ClayButton variant="ghost" size="sm" onClick={handleBack}>
               이전으로
             </ClayButton>
           </div>

@@ -6,7 +6,7 @@ import styles from './EmptyState.module.css';
 export type EmptyStateTone = 'default' | 'error';
 
 export interface EmptyStateProps {
-  /** 이모지 또는 아이콘 */
+  /** 원 안에 표시할 짧은 글자나 아이콘 요소 (예: "404") */
   icon?: ReactNode;
   title: string;
   description?: ReactNode;
@@ -18,7 +18,7 @@ export interface EmptyStateProps {
 }
 
 /** 결과 없음, 에러, 안내 메시지 */
-export function EmptyState({ icon = '🐣', title, description, action, tone = 'default', className }: EmptyStateProps) {
+export function EmptyState({ icon, title, description, action, tone = 'default', className }: EmptyStateProps) {
   return (
     <ClayCard
       color="white"
@@ -26,9 +26,11 @@ export function EmptyState({ icon = '🐣', title, description, action, tone = '
       className={cx(styles.card, className)}
       role={tone === 'error' ? 'alert' : 'status'}
     >
-      <span className={styles.icon} aria-hidden="true">
-        {icon}
-      </span>
+      {icon && (
+        <span className={styles.icon} aria-hidden="true">
+          {icon}
+        </span>
+      )}
       <h2 className={styles.title}>{title}</h2>
       {description && <p className={styles.description}>{description}</p>}
       {action && <div className={styles.action}>{action}</div>}

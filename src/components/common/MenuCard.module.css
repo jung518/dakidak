@@ -40,13 +40,15 @@
   }
 }
 
-.emoji {
+.initial {
+  font-family: var(--font-display);
   font-size: 4.5rem;
   line-height: 1;
+  color: var(--color-accent);
 }
 
 @media (min-width: 768px) {
-  .emoji {
+  .initial {
     font-size: 5.5rem;
   }
 }

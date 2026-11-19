@@ -11,7 +11,7 @@ export interface RestaurantCardProps {
   className?: string;
 }
 
-/** "음식점 > 한식 > 닭요리" → "한식 > 닭요리" (맨 앞 '음식점'은 생략) */
+/** "음식점 > 한식 > 닭요리" 를 "한식 > 닭요리" 로 줄임 (맨 앞 '음식점'은 생략) */
 function shortenCategory(category: string): string {
   const parts = category.split('>').map((p) => p.trim()).filter(Boolean);
   if (parts[0] === '음식점' && parts.length > 1) parts.shift();
@@ -33,18 +33,12 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
 
       <dl className={styles.info}>
         <div className={styles.row}>
-          <dt>
-            <span aria-hidden="true">📍</span>
-            <span className="sr-only">주소</span>
-          </dt>
+          <dt>주소</dt>
           <dd>{address}</dd>
         </div>
         {phone && (
           <div className={styles.row}>
-            <dt>
-              <span aria-hidden="true">📞</span>
-              <span className="sr-only">전화번호</span>
-            </dt>
+            <dt>전화</dt>
             <dd>
               <a href={`tel:${phone}`} className={styles.phone}>
                 {phone}

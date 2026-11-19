@@ -28,7 +28,6 @@ const sampleMenu: ChickenMenu = {
   id: 'dakgalbi',
   name: '닭갈비',
   description: '매콤달콤한 양념에 철판으로 볶아낸 춘천의 맛',
-  emoji: '🍗',
   cuisine: 'korean',
   cooking: ['stirfry'],
   taste: ['spicy', 'sweet'],
@@ -80,10 +79,10 @@ function Preview() {
       showBack
       bottomBar={
         <>
-          <ClayButton fullWidth icon="📍">
+          <ClayButton fullWidth>
             이 메뉴 파는 식당 찾기
           </ClayButton>
-          <ClayButton fullWidth variant="secondary" icon="🔄">
+          <ClayButton fullWidth variant="secondary">
             다시 추천하기
           </ClayButton>
         </>
@@ -105,15 +104,15 @@ function Preview() {
         <div className={styles.row}>
           <ClayButton size="sm">primary sm</ClayButton>
           <ClayButton>primary md</ClayButton>
-          <ClayButton size="lg" icon="🎲">
+          <ClayButton size="lg">
             primary lg
           </ClayButton>
         </div>
         <div className={styles.row}>
-          <ClayButton variant="secondary" icon="🔄">
+          <ClayButton variant="secondary">
             secondary
           </ClayButton>
-          <ClayButton variant="ghost" icon="🏠">
+          <ClayButton variant="ghost">
             ghost
           </ClayButton>
           <ClayButton disabled>disabled</ClayButton>
@@ -130,7 +129,7 @@ function Preview() {
             링크 버튼
           </ClayButton>
         </div>
-        <ClayButton fullWidth icon="📍">
+        <ClayButton fullWidth>
           fullWidth
         </ClayButton>
       </Section>
@@ -160,8 +159,8 @@ function Preview() {
 
       <Section title="OptionCard">
         <div className={styles.grid2}>
-          <OptionCard size="lg" color="yellow" icon="🎲" title="랜덤으로 골라줘" description="고민은 그만, 닭이닭이 골라줄게요" onClick={() => {}} />
-          <OptionCard size="lg" icon="🧭" title="골라서 찾을래" description="4가지 질문으로 딱 맞는 닭요리 찾기" onClick={() => {}} />
+          <OptionCard size="lg" color="yellow" title="랜덤으로 골라줘" description="고민은 그만, 닭이닭이 골라줄게요" onClick={() => {}} />
+          <OptionCard size="lg" title="골라서 찾을래" description="4가지 질문으로 딱 맞는 닭요리 찾기" onClick={() => {}} />
         </div>
         <div className={styles.stack}>
           {['국물', '볶음', '튀김'].map((label) => (
@@ -185,7 +184,7 @@ function Preview() {
       <Section title="MenuCard">
         <div className={styles.grid2}>
           <MenuCard menu={sampleMenu} />
-          <MenuCard menu={{ ...sampleMenu, id: 'x', name: '치킨난반', emoji: '🍱' }} message="딱 맞는 건 없지만 이건 어때요?" />
+          <MenuCard menu={{ ...sampleMenu, id: 'x', name: '치킨난반' }} message="딱 맞는 건 없지만 이건 어때요?" />
         </div>
       </Section>
 
@@ -201,7 +200,6 @@ function Preview() {
       <Section title="EmptyState">
         <div className={styles.grid2}>
           <EmptyState
-            icon="😢"
             title="근처에 닭갈비 파는 곳이 없어요"
             description="반경을 넓히거나 다른 메뉴를 골라 보세요."
             action={
@@ -211,7 +209,7 @@ function Preview() {
               </>
             }
           />
-          <EmptyState tone="error" icon="🐔" title="앗, 잠시 문제가 생겼어요" description="네트워크 상태를 확인하고 다시 시도해 주세요." action={<ClayButton>다시 시도</ClayButton>} />
+          <EmptyState tone="error" title="앗, 잠시 문제가 생겼어요" description="네트워크 상태를 확인하고 다시 시도해 주세요." action={<ClayButton>다시 시도</ClayButton>} />
         </div>
       </Section>
 

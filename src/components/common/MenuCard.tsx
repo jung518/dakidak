@@ -13,7 +13,7 @@ export interface MenuCardProps {
   className?: string;
 }
 
-/** 추천된 닭요리 카드: 이모지(또는 이미지), 이름, 한 줄 설명, 태그 */
+/** 추천된 닭요리 카드: 이미지(없으면 이름 첫 글자), 이름, 한 줄 설명, 태그 */
 export function MenuCard({ menu, message, className }: MenuCardProps) {
   const reduceMotion = useReducedMotion();
   const tags = getMenuTags(menu);
@@ -38,8 +38,8 @@ export function MenuCard({ menu, message, className }: MenuCardProps) {
           {menu.image ? (
             <img src={menu.image} alt="" className={styles.image} />
           ) : (
-            <span className={styles.emoji} aria-hidden="true">
-              {menu.emoji}
+            <span className={styles.initial} aria-hidden="true">
+              {Array.from(menu.name)[0]}
             </span>
           )}
         </div>

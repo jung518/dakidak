@@ -12,7 +12,10 @@ export interface MascotProps {
   className?: string;
 }
 
-/** 임시 대표 캐릭터: 큰 클레이 원 + 🐥. character.png 가 있으면 이미지로 대체 */
+/**
+ * 임시 대표 캐릭터: 큰 클레이 원에 CSS 로 그린 병아리 얼굴
+ * src/assets/brand/character.png 가 있으면 이미지로 대체
+ */
 export function Mascot({ size = 'lg', animated = true, className }: MascotProps) {
   const reduceMotion = useReducedMotion();
   const shouldAnimate = animated && !reduceMotion;
@@ -28,8 +31,12 @@ export function Mascot({ size = 'lg', animated = true, className }: MascotProps)
       {characterSrc ? (
         <img src={characterSrc} alt="" className={styles.image} />
       ) : (
-        <span className={styles.emoji} aria-hidden="true">
-          🐥
+        <span className={styles.face} aria-hidden="true">
+          <span className={cx(styles.eye, styles.eyeLeft)} />
+          <span className={cx(styles.eye, styles.eyeRight)} />
+          <span className={cx(styles.cheek, styles.cheekLeft)} />
+          <span className={cx(styles.cheek, styles.cheekRight)} />
+          <span className={styles.beak} />
         </span>
       )}
     </motion.div>

@@ -10,9 +10,7 @@ export interface ChickenMenu {
   name: string;
   /** 한 줄 설명 */
   description: string;
-  /** 임시 이미지 대용 이모지 */
-  emoji: string;
-  /** 추후 실제 이미지 경로 */
+  /** 실제 이미지 경로 (없으면 카드에 메뉴 이름 첫 글자를 표시) */
   image?: string;
   cuisine: Cuisine;
   cooking: Cooking[];

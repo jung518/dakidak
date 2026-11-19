@@ -9,11 +9,11 @@ export default function NotFound() {
     <PageLayout narrow>
       <div className={styles.page}>
         <EmptyState
-          icon="🐣"
+          icon="404"
           title="앗, 길을 잃은 병아리예요"
           description="찾으시는 페이지가 없어요. 홈으로 돌아가서 오늘의 닭요리를 골라 볼까요?"
           action={
-            <ClayButton icon="🏠" onClick={() => navigate('/')}>
+            <ClayButton onClick={() => navigate('/')}>
               처음으로
             </ClayButton>
           }
