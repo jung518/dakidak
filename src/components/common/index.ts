@@ -16,6 +16,9 @@ export type { ProgressBarProps } from './ProgressBar';
 export { MenuCard } from './MenuCard';
 export type { MenuCardProps } from './MenuCard';
 
+export { MenuShuffle } from './MenuShuffle';
+export type { MenuShuffleProps } from './MenuShuffle';
+
 export { RestaurantCard } from './RestaurantCard';
 export type { RestaurantCardProps } from './RestaurantCard';
 

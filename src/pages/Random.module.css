@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* 셔플 카드와 메뉴 카드가 바뀔 때 높이가 크게 출렁이지 않도록 최소 높이 확보 */
+.stage {
+  width: 100%;
+  min-height: 380px;
+}
+
+@media (min-width: 768px) {
+  .stage {
+    min-height: 440px;
+  }
+}

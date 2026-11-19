@@ -1,0 +1,74 @@
+.card {
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* MenuCard 와 같은 크기로 맞춰 셔플이 끝날 때 화면이 덜 흔들리도록 */
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  box-shadow: var(--clay-shadow);
+}
+
+@media (min-width: 768px) {
+  .visual {
+    width: 168px;
+    height: 168px;
+  }
+}
+
+.spinning {
+  animation: wobble 0.32s ease-in-out infinite alternate;
+}
+
+.initial {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .initial {
+    font-size: 5.5rem;
+  }
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: var(--text-4xl);
+  }
+}
+
+.label {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+@keyframes wobble {
+  from {
+    transform: rotate(-6deg) scale(0.97);
+  }
+  to {
+    transform: rotate(6deg) scale(1.03);
+  }
+}
