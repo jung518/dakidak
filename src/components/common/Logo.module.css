@@ -22,8 +22,15 @@
   object-fit: contain;
 }
 
+/* 헤더용 */
 .wordmark-sm {
-  height: 44px;
+  height: 56px;
+}
+
+@media (min-width: 768px) {
+  .wordmark-sm {
+    height: 64px;
+  }
 }
 
 .wordmark-md {

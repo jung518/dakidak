@@ -105,7 +105,7 @@
   /* ---------- 레이아웃 ---------- */
   --layout-max-width: 1080px;
   --layout-gutter: var(--space-4);
-  --header-height: 64px;
+  --header-height: 72px;
   --touch-target: 44px;
 
   /* ---------- 모션 ---------- */
@@ -125,6 +125,7 @@
 @media (min-width: 768px) {
   :root {
     --layout-gutter: var(--space-6);
+    --header-height: 80px;
   }
 }
 

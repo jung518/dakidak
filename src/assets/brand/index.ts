@@ -5,7 +5,7 @@
  *   character       홈 화면 캐릭터
  *   chef-{조리법}    메뉴 카드 그림 (soup, stirfry, fried, grilled, braised)
  *   chef-{상황}      thinking(셔플 중), empty(식당 없음), lost(404), oops(오류)
- * - 원본 이미지는 source/ 폴더에 보관 (사이트에는 포함되지 않음)
+ * - 사이트용으로 줄인 WebP(가로 512~640px)를 넣는 것을 권장 (원본 PNG 는 1MB 안팎이라 무거움)
  * - import.meta.glob 은 실제 있는 파일만 가져오므로 파일이 없어도 빌드 오류가 나지 않고 기본 모양으로 표시됩니다.
  */
 import type { Cooking } from '../../types';
