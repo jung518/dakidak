@@ -4,13 +4,13 @@ import type { ChickenMenu } from '../types';
 /**
  * 거리(m)를 보기 좋은 문자열로 변환
  * - 1000m 미만: "350m"
- * - 1000m 이상: "1.2km"
+ * - 1000m 이상: "1.2km", "3km"
  */
 export function formatDistance(meters: number): string {
   if (!Number.isFinite(meters) || meters < 0) return '';
   if (meters < 1000) return `${Math.round(meters)}m`;
   const km = meters / 1000;
-  return `${km < 10 ? km.toFixed(1) : Math.round(km)}km`;
+  return `${km < 10 ? Number(km.toFixed(1)) : Math.round(km)}km`;
 }
 
 /** 메뉴의 태그 목록을 한글 라벨 배열로 변환 (예: ['한식', '볶음', '매콤']) */

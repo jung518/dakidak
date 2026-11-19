@@ -14,6 +14,16 @@ export function pickRandom<T>(items: readonly T[], random: RandomFn = Math.rando
   return items[Math.floor(random() * items.length)];
 }
 
+/** 배열을 섞은 새 배열 (Fisher-Yates) */
+export function shuffle<T>(items: readonly T[], random: RandomFn = Math.random): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [result[i], result[j]] = [result[j]!, result[i]!];
+  }
+  return result;
+}
+
 /** 직전 메뉴를 후보에서 제외 (제외하면 비어 버릴 때는 원래 목록 유지) */
 export function excludeMenu(menus: readonly ChickenMenu[], excludeId?: string): readonly ChickenMenu[] {
   if (!excludeId) return menus;
