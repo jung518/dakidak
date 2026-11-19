@@ -217,16 +217,19 @@ export default function Result() {
       showBack
       bottomBar={
         <>
-          <ClayButton
-            variant="primary"
-            size="lg"
-            fullWidth
-            disabled={!canReroll}
-            loading={location !== undefined && !showInput && search.status === 'loading'}
-            onClick={search.reroll}
-          >
-            식당 다시 추천받기
-          </ClayButton>
+          {/* 위치를 입력하거나 확인하는 중에는 숨겨서 입력창을 가리지 않게 */}
+          {location && !showInput && (
+            <ClayButton
+              variant="primary"
+              size="lg"
+              fullWidth
+              disabled={!canReroll}
+              loading={search.status === 'loading'}
+              onClick={search.reroll}
+            >
+              식당 다시 추천받기
+            </ClayButton>
+          )}
           <ClayButton variant="secondary" fullWidth onClick={() => navigate('/')}>
             메뉴 다시 고르기
           </ClayButton>

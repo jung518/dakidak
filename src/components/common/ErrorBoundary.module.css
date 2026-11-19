@@ -1,0 +1,6 @@
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-16) var(--layout-gutter);
+}

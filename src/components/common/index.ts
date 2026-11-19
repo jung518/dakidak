@@ -25,6 +25,9 @@ export type { RestaurantCardProps } from './RestaurantCard';
 export { SkeletonCard } from './SkeletonCard';
 export type { SkeletonCardProps } from './SkeletonCard';
 
+export { ErrorBoundary } from './ErrorBoundary';
+export type { ErrorBoundaryProps } from './ErrorBoundary';
+
 export { EmptyState } from './EmptyState';
 export type { EmptyStateProps, EmptyStateTone } from './EmptyState';
 

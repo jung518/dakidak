@@ -93,7 +93,10 @@ export async function takeNextBatch(cursor: SearchCursor, mode: Mode, fetchPage:
     break;
   }
 
-  const next = unseen().slice(0, SHOW_COUNT);
+  // 고르는 건 섞어서, 보여줄 때는 가까운 순으로
+  const next = unseen()
+    .slice(0, SHOW_COUNT)
+    .sort((a, b) => a.distance - b.distance);
   next.forEach((r) => cursor.shown.add(r.id));
   return {
     next,

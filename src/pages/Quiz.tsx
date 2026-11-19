@@ -3,7 +3,6 @@ import { useMemo, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ClayButton,
-  ClayChip,
   MenuCard,
   MenuShuffle,
   OptionCard,
@@ -61,18 +60,6 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
   }
 }
 
-/** 답변을 "#밥이랑 #국물" 같은 칩 라벨로 ("상관없음" 은 제외) */
-function getAnswerLabels(answers: QuizAnswers): string[] {
-  const labels: string[] = [];
-  for (const step of QUIZ_STEPS) {
-    const value = answers[step.key];
-    if (!value || value === 'any') continue;
-    const option = (step.options as Array<{ value: string; label: string }>).find((o) => o.value === value);
-    if (option) labels.push(option.label);
-  }
-  return labels;
-}
-
 /* =========================== 페이지 =========================== */
 
 export default function Quiz() {
@@ -104,7 +91,6 @@ export default function Quiz() {
     : { initial: { opacity: 0, x: 32 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -32 } };
 
   const ready = isResult && !isShuffling && menu !== undefined;
-  const answerLabels = getAnswerLabels(state.answers);
   const onlyOne = candidates.length < 2;
 
   return (
@@ -185,14 +171,6 @@ export default function Quiz() {
               <h1 id="quiz-result" className={styles.title}>
                 {ready ? '이런 닭요리 어때요?' : '딱 맞는 닭요리를 찾는 중'}
               </h1>
-
-              <ul className={styles.answers} aria-label="고른 조건">
-                {(answerLabels.length > 0 ? answerLabels : ['아무거나']).map((label) => (
-                  <li key={label}>
-                    <ClayChip label={`#${label}`} />
-                  </li>
-                ))}
-              </ul>
 
               <div className={styles.stage} aria-live="polite">
                 {ready ? (

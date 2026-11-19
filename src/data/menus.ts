@@ -305,7 +305,7 @@ export const MENUS: ChickenMenu[] = [
     cuisine: 'western',
     mealType: ['snack'],
     cooking: ['grilled'],
-    taste: ['savory', 'spicy'],
+    taste: ['savory'],
     servings: ['solo', 'group'],
     searchKeyword: '퀘사디아',
   },
@@ -413,7 +413,7 @@ export const MENUS: ChickenMenu[] = [
   },
   {
     id: 'yakitori',
-    name: '야키토리',
+    name: '야끼토리',
     description: '숯불에 꼬치를 구워 타레 소스나 소금으로 맛을 낸 일본식 닭꼬치',
     cuisine: 'japanese',
     mealType: ['snack'],
