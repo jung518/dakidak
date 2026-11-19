@@ -1,0 +1,106 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: var(--touch-target);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  color: var(--color-text);
+  box-shadow: var(--clay-shadow);
+  transition:
+    transform var(--duration-normal) var(--ease-spring),
+    box-shadow var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: var(--lift-hover);
+    box-shadow: var(--clay-shadow-hover);
+  }
+}
+
+.card:active {
+  transform: var(--scale-pressed);
+  box-shadow: var(--clay-shadow-pressed);
+}
+
+/* ---------- color ---------- */
+.white {
+  background-color: var(--color-surface);
+}
+
+.yellow {
+  background-color: var(--yellow-300);
+}
+
+.selected {
+  background-color: var(--color-accent-soft);
+}
+
+/* ---------- size ---------- */
+.md {
+  padding: var(--space-4) var(--space-5);
+}
+
+.lg {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+}
+
+@media (min-width: 768px) {
+  .lg {
+    padding: var(--space-8);
+  }
+}
+
+/* ---------- 내용 ---------- */
+.icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--yellow-100);
+  box-shadow: var(--clay-shadow-inset);
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.lg .icon {
+  width: 64px;
+  height: 64px;
+  font-size: var(--text-3xl);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+}
+
+.lg .title {
+  font-size: var(--text-2xl);
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.lg .description {
+  font-size: var(--text-md);
+}

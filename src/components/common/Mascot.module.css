@@ -1,0 +1,47 @@
+.mascot {
+  --mascot-size: 200px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--mascot-size);
+  height: var(--mascot-size);
+  max-width: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--yellow-300);
+  box-shadow: var(--clay-shadow);
+}
+
+.withImage {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.sm {
+  --mascot-size: 96px;
+}
+
+.md {
+  --mascot-size: 144px;
+}
+
+.lg {
+  --mascot-size: 180px;
+}
+
+@media (min-width: 768px) {
+  .lg {
+    --mascot-size: 220px;
+  }
+}
+
+.emoji {
+  font-size: calc(var(--mascot-size) * 0.52);
+  line-height: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+}
+
+.input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: var(--space-3) var(--space-5);
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  background-color: var(--yellow-100);
+  box-shadow: var(--clay-shadow-inset);
+  font-size: var(--text-md); /* 16px 이상: iOS 확대 방지 */
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.input:focus-visible {
+  border-color: var(--color-focus);
+  box-shadow: var(--clay-shadow-inset);
+}
+
+.input:disabled {
+  opacity: 0.6;
+}
+
+.invalid {
+  border-color: var(--color-danger);
+}
+
+.submit {
+  flex-shrink: 0;
+}
+
+.error {
+  padding-left: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-danger);
+}
