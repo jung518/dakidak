@@ -358,7 +358,7 @@ export const MENUS: ChickenMenu[] = [
   /* =========================== 일식 =========================== */
   {
     id: 'oyakodon',
-    name: '오야코동',
+    name: '오야꼬동',
     description: '닭고기와 달걀을 달큰한 쯔유에 살짝 익혀 밥 위에 올린 덮밥',
     cuisine: 'japanese',
     mealType: ['rice'],
